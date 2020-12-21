@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message To Aexki: Myside</title>
+    <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static './styleformessage.css'%}">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+
+</head>
+
+<body>
+    <div class="messaging">
+        <div id="inbox_msg">
+            <div class="mesgs">
+                {%for m in all_messages%} {%if m.type == 'client'%}
+                <div class="incoming_msg">
+                    <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                    <div class="received_msg">
+                        <div class="received_withd_msg">
+                            <p>{{m.message}}</p>
+                            <span class="time_date"> {{m.sendtime}}   |    June 9</span></div>
+                    </div>
+                </div>
+                {%else%}
+                <div class="outgoing_msg">
+                    <div class="outgoing_msg_img"> <img src="{% static './ax.png' %}"> </div>
+                    <div class="sent_msg">
+                        <p>{{m.message}}
+                        </p>
+                        <span class="time_date"> {{m.sendtime}}    |    June 9</span>
+                    </div>
+                </div>
+                {%endif%}{%endfor%}
+            </div>
+        </div>
+
+        <div class="msginput">
+            <form action="{% url 'recieve' %}" method="POST" id="sendoptions">{%csrf_token%}
+                <input type="text" placeholder="Type Message" name="message" id="minput" onfocus="placeholder=''" autocomplete="off">
+                <button><i class="fas fa-paper-plane fa-3x"></i></button>
+            </form>
+        </div>
+    </div>
+    <script src="{% static 'scriptformessage.js'%}"></script>
+
+</body>
+
+</html>

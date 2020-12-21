@@ -1,0 +1,17 @@
+{
+  "username": "aman",
+  "Messages": [
+    {
+      "Name": "aman",
+      "Message": "lol",
+      "Type": "client",
+      "DateTime": "2020-12-18 10:30:24.288943"
+    },
+    {
+      "Name": "Chatbot",
+      "Message": "Hi there, how can I help?",
+      "Type": "myside",
+      "DateTime": "2020-12-18 10:30:24.289526"
+    }
+  ]
+}

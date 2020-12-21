@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message To Aexki: Client Side</title>
+    <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static './styleformessage.css'%}">
+    <link rel="stylesheet" href="{% static './styleforindex.css'%}">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn"><i class="fas fa-bars"></i></label>
+        <label class="logo">AexBot</label>
+        <ul>
+            <li><a href="" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="contact"><i class="far fa-address-book"></i> Contact</a></li>
+            <li style="border-left: 3px solid white; height: 20px;"></li>
+            <li><a href="" onclick="alert('Creator and Developer : Aman Jena')"><i class="fas fa-project-diagram"></i> About Developer</a></li>
+        </ul>
+    </nav>
+    <div class="messaging">
+        <div id="inbox_msg">
+            <div class="mesgs">
+                {%for m in Messages%} {%if m.Type == "myside"%}
+                <div class="incoming_msg">
+                    <div class="incoming_msg_img"> <img src="{% static './ax.png' %}"> </div>
+                    <div class="received_msg">
+                        <div class="received_withd_msg">
+                            <p>{{m.Message}}</p>
+                            <span class="time_date"> {{m.DateTime}}  |    June 9</span></div>
+                    </div>
+                </div>
+                {%else%}
+                <div class="outgoing_msg">
+                    <div class="outgoing_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                    <div class="sent_msg">
+                        <p>{{m.Message}}
+                        </p>
+                        <span class="time_date"> {{m.DateTime}}    |    June 9</span>
+                    </div>
+                </div>
+                {%endif%}{%endfor%}
+            </div>
+        </div>
+
+        <div class="msginput">
+            <form action="{% url 'send' %}" method="POST" id="sendoptions">{%csrf_token%}
+                <input type="text" placeholder="Type Message" name="message" id="minput" onfocus="placeholder=''" autocomplete="off">
+                <button style="border: none;"><i class="fas fa-paper-plane fa-3x"></i></button>
+            </form>
+        </div>
+    </div>
+    <script src="{% static 'scriptformessage.js'%}"></script>
+
+</body>
+
+</html>

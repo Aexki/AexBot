@@ -1,0 +1,209 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 80vh;
+    color: white;
+}
+
+.row {
+    width: 100%;
+    height: 100%;
+}
+
+.box {
+    padding: 20px;
+    height: 70vh;
+}
+
+nav {
+    background: #03192b;
+    height: 100px;
+    width: 100%;
+}
+
+.navbar {
+    position: relative;
+    top: 0;
+    z-index: 5;
+}
+
+label.logo {
+    color: rgb(205, 235, 150);
+    font-size: 50px;
+    line-height: 70px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+
+nav ul {
+    float: right;
+    margin-right: 20px;
+    z-index: 2;
+}
+
+nav ul li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+    transition: 1s;
+}
+
+nav ul li a {
+    position: relative;
+    color: white;
+    font-size: 18px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    transition: 0.5s;
+    bottom: 0;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    border-bottom: 2px solid rgb(205, 235, 150);
+    bottom: 0;
+    left: 0;
+    right: 100%;
+    transition: 0.3s;
+}
+
+nav ul li a:hover::after {
+    right: 0
+}
+
+nav a.active {
+    transition: 0.2s;
+    color: rgb(205, 235, 150);
+    text-decoration: none;
+    border-radius: 0;
+}
+
+nav a:hover {
+    transition: 0.2s;
+    color: rgb(205, 235, 150);
+    text-decoration: none;
+    border-radius: 0;
+    bottom: 5px;
+}
+
+.checkbtn {
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-top: 40px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#check {
+    display: none;
+}
+
+@media(max-width: 952px) {
+    label.logo {
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 858px) {
+    .checkbtn {
+        display: inline-block;
+    }
+    ul {
+        position: fixed;
+        width: 100%;
+        height: 40vh;
+        background: #2c3e50;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+    nav ul li {
+        display: block;
+    }
+    nav ul li a {
+        font-size: 20px;
+    }
+    a:hover,
+    a.active {
+        background: none;
+        color: #0082e6;
+    }
+    #check:checked~ul {
+        left: 0;
+    }
+}
+
+body {
+    background-image: url('4k-abstract-wallpaper-blue-and-black-4k.jpg');
+    background-size: cover;
+}
+
+.line {
+    border-right: 5px solid white;
+    text-align: left;
+}
+
+.line h1 {
+    font-size: 70px;
+    color: rgb(205, 235, 150);
+}
+
+.line h3 {
+    font-size: 35px;
+    margin: 5px 0;
+}
+
+.titlelogo {
+    position: relative;
+    top: 45%;
+    transform: translateY(-50%);
+}
+
+.getusername {
+    position: relative;
+    top: 40%;
+    transform: translateY(-50%);
+}
+
+.getusername h4 {
+    font-size: 35px;
+}
+
+#username {
+    border: 2px solid white;
+    background-color: black;
+    border-radius: 50px;
+    width: 250px;
+    padding: 10px 20px;
+    margin: 20px 30px;
+    outline: none;
+    text-decoration: none;
+    color: rgb(205, 235, 150);
+}
+
+#username::placeholder {
+    color: rgb(205, 235, 150);
+    opacity: 1;
+}
+
+#submitbutton {
+    border: 2px solid white;
+    background-color: black;
+    color: rgb(205, 235, 150);
+    width: 250px;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 0 30px;
+}
