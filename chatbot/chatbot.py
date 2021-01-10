@@ -51,10 +51,11 @@ def predict_class(sentence):
 def get_response(intents_list, intents_json):
     tag = intents_list[0]['intent']
     list_of_intents = intents_json['intents']
+    result="Cannot understand"
     for i in list_of_intents:
         if i['tag'] == tag:
             if(i['tag']=="age"):
-                result = "He is "+ str(int(dt.year)-2000)+" years old!"
+                result = "He is "+ str(int(dt.year)-2001)+" years old!"
                 break
             result = random.choice(i['responses'])
             break 
@@ -62,10 +63,8 @@ def get_response(intents_list, intents_json):
 
 print("Go! The Bot is running!")
 
-# while True:
-#     message = input("Enter message for bot: ")
-#     ints = predict_class(message)
-#     res = get_response(ints, intents)
-#     print(res)
-        
-        
+while True:
+    message = input("Enter message for bot: ")
+    ints = predict_class(message)
+    res = get_response(ints, intents)
+    print(res)        

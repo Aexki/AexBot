@@ -24,7 +24,7 @@ nav {
 }
 
 .navbar {
-    position: fixed;
+    position: relative;
     top: 0;
     z-index: 5;
 }
@@ -93,37 +93,61 @@ nav a:hover {
 .checkbtn {
     font-size: 30px;
     color: white;
-    line-height: 20px;
-    margin-top: 0px;
+    float: right;
+    line-height: 80px;
+    margin-top: 40px;
+    margin-right: 40px;
     cursor: pointer;
-    margin-left: 20px;
     display: none;
-    transition: .5s;
-}
-
-.checkbtnclose {
-    font-size: 30px;
-    color: white;
-    line-height: 20px;
-    margin-top: 0px;
-    cursor: pointer;
-    margin-left: 20px;
-    display: none;
-    transition: .5s;
 }
 
 #check {
     display: none;
 }
 
+@media(max-width: 952px) {
+    label.logo {
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 858px) {
+    .checkbtn {
+        display: inline-block;
+    }
+    ul {
+        position: fixed;
+        width: 100%;
+        height: 40vh;
+        background: #2c3e50;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+    nav ul li {
+        display: block;
+    }
+    nav ul li a {
+        font-size: 20px;
+    }
+    a:hover,
+    a.active {
+        background: none;
+        color: #0082e6;
+    }
+    #check:checked~ul {
+        left: 0;
+    }
+}
+
 body {
     background-image: url('4k-abstract-wallpaper-blue-and-black-4k.jpg');
     background-size: cover;
-}
-
-.container {
-    position: relative;
-    top: 100px;
 }
 
 .line {
@@ -139,7 +163,6 @@ body {
 .line h3 {
     font-size: 35px;
     margin: 5px 0;
-    max-width: 80%;
 }
 
 .titlelogo {
@@ -167,7 +190,6 @@ body {
     margin: 20px 30px;
     outline: none;
     text-decoration: none;
-    text-align: center;
     color: rgb(205, 235, 150);
 }
 
@@ -184,88 +206,4 @@ body {
     border-radius: 50px;
     padding: 10px 20px;
     margin: 0 30px;
-}
-
-@media(max-width: 952px) {
-    label.logo {
-        font-size: 35px;
-        padding-left: 50px;
-    }
-    nav ul li a {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 858px) {
-    .line {
-        border: none;
-        margin-top: 60px;
-    }
-    .box {
-        height: auto;
-    }
-    #submitbutton {
-        margin-bottom: 40px;
-    }
-    .line h1 {
-        font-size: 50px;
-    }
-    .line h3 {
-        max-width: 100%;
-    }
-    .titlelogo {
-        top: 30%;
-    }
-    #line1 {
-        display: none;
-    }
-    .checkbtn {
-        display: inline-block;
-    }
-    ul {
-        position: fixed;
-        width: 100%;
-        height: 35vh;
-        background: #15273a;
-        top: 102px;
-        left: -100%;
-        text-align: center;
-        transition: all .5s;
-    }
-    nav ul li {
-        display: block;
-    }
-    nav ul li a {
-        font-size: 20px;
-    }
-    a:hover,
-    a.active {
-        background: none;
-        color: #0082e6;
-    }
-    #check:checked~ul {
-        left: 0;
-    }
-    #check:checked~.checkbtn {
-        display: none;
-    }
-    #check:checked~.checkbtnclose {
-        display: inline;
-    }
-}
-
-.footer {
-    position: fixed;
-    bottom: 0;
-    text-align: center;
-    height: 60px;
-    width: 100%;
-    border-top: 1px solid white;
-    background: black;
-}
-
-.footer p {
-    position: relative;
-    color: white;
-    top: 20px;
 }

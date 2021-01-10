@@ -1,7 +1,7 @@
 {
     "intents": [{
             "tag": "greeting",
-            "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day", "Whats up"],
+            "patterns": ["Hi", "Is anyone there?", "Hello", "Good day", "Whats up"],
             "responses": ["Hello! How can I help?", "Good to see you again!", "Hi there, how can I help?"],
             "context_set": ""
         },
@@ -18,6 +18,12 @@
             "context_set": ""
         },
         {
+            "tag": "status",
+            "patterns": ["how are you?", "are you all right", "how do you do"],
+            "responses": ["I am doing good, thanks for asking.."],
+            "context_set": ""
+        },
+        {
             "tag": "sabatini",
             "patterns": ["who is sabatini", "sabatini?", "is sabatini donkey?"],
             "responses": ["She is her donkey sister :)"],
@@ -25,38 +31,32 @@
         },
         {
             "tag": "birthday",
-            "patterns": ["birthday?", "when is the birthday?", "When was he born?", "birthdate?", "janmadina?"],
-            "responses": ["Thats a personal question; I don't have permission to discuss about that..:("],
+            "patterns": ["birthday?", "when is the birthday?", "When was he born?", "birthdate?"],
+            "responses": ["His birthday is on 21st March."],
             "context_set": ""
         },
         {
             "tag": "aexki",
             "patterns": ["who is aexki", "real name of aexki", "aexki", "your owner?", "is this aexki?"],
-            "responses": ["Aexki is my creator. His real name is Aman Jena.\nVisit his site: <a href='https:\\aexki.github.io/profile'>https:\\aexki.github.io/profile</a>"],
+            "responses": ["Aexki is my creator. His real name is Aman Jena.\nVisit his site: https://aexki.github.io/profile"],
             "context_set": ""
         },
         {
             "tag": "about",
             "patterns": ["what does he do?", "what do you do?", "What do you specialise in?", "what do you study?", "study?", "job"],
-            "responses": ["Currently he is a student at silicon institute of technology.\nAnd he specialise in creating most usless things one could think of..:)"],
+            "responses": ["Currently he is a student at silicon institute of technology."],
             "context_set": ""
         },
         {
             "tag": "name",
             "patterns": ["what is your name", "what should I call you", "whats your name?", "name?", "who are you?", "who is this"],
-            "responses": ["I'm Toya, I am aexki's private bot!"],
-            "context_set": ""
-        },
-        {
-            "tag": "education",
-            "patterns": ["What school is he from?", "school?", "highschool?", "College?", "what are you studying now?", "university?"],
-            "responses": ["He is a davian, currently in silicon studying Btech, CSE."],
+            "responses": ["I'm Aexbot, I am Aexki's private bot!"],
             "context_set": ""
         },
         {
             "tag": "hobby",
             "patterns": ["what do you do in your free time", "whats your favourite hobby", "what are you good at", "hobby", "free time task"],
-            "responses": ["He loves reading books!", "He loves Gaming!", "He likes cycling!", "He loves creating usless things!"],
+            "responses": ["He loves reading books!", "He loves Gaming!", "He likes cycling!"],
             "context_set": ""
         },
         {
@@ -66,14 +66,8 @@
             "context_set": ""
         },
         {
-            "tag": "slang",
-            "patterns": ["is he virgin?", "virgin?", "is he chaka?", "chup mc", "chodi hauchu?", "mg", "mc", "bc", "Chaka?"],
-            "responses": ["Fuck off .l."],
-            "context_set": ""
-        },
-        {
             "tag": "lover",
-            "patterns": ["Does he have a lover", "past lover?", "previous lover", "love", "First love", "crush", "crushing over?"],
+            "patterns": ["Does he have a lover", "past lover?", "previous lover", "love", "First love", "crush", "crushing over?", "first love"],
             "responses": ["That's a private question. I don't have permission to disclose the information:("],
             "context_set": ""
         },
@@ -87,6 +81,30 @@
             "tag": "basketball",
             "patterns": ["Does he play basketball", "Baksetball", "ever played  basketball", "basketball position"],
             "responses": ["Yes he loves playing basketball!"],
+            "context_set": ""
+        },
+        {
+            "tag": "anime",
+            "patterns": ["Does he watch anime", "anime", "ever watched anime"],
+            "responses": ["Yes he loves anime.."],
+            "context_set": ""
+        },
+        {
+            "tag": "movie",
+            "patterns": ["Does he watch movies?", "favourite Movie?", "movie"],
+            "responses": ["Yes he loves animated movies."],
+            "context_set": ""
+        },
+        {
+            "tag": "song",
+            "patterns": ["Does he listen to music", "music?"],
+            "responses": ["Yes he loves listening to music when he works."],
+            "context_set": ""
+        },
+        {
+            "tag": "book",
+            "patterns": ["Does he read books?", "book?"],
+            "responses": ["Yes he loves reading books.. He likes talking about it, if you want you can ask him about it.."],
             "context_set": ""
         }
     ]

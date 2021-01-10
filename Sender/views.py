@@ -1,18 +1,16 @@
 from django.shortcuts import render,redirect
-from django.contrib import messages
-import requests
 import os
 import json
-from datetime import datetime
+from datetime import datetime,date
 from chatbot.chatbot import get_response,predict_class
-
+import requests
 
 def process_request(request):
     dote = request.session['last_activity']
     # print("Last Activity :"+str(dote))
     last_activity = datetime.strptime(dote, '%Y-%m-%d %H:%M:%S.%f')
     now = datetime.now()
-    if (now - last_activity).seconds > 30:
+    if (now - last_activity).seconds > 60:
         # print("Session Expired!")
         
         path=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'usersofchatbot')
@@ -25,7 +23,8 @@ def process_request(request):
             feedsjson.close
                 
             if request.session['status:on']:
-                # requests.post('https://script.google.com/macros/s/AKfycbyrykMlZdJiSK6pHI9HkQRIjKyxHMiD5j7oNwUIIMrYNq7k30fr/exec',feeds)
+                print("Session Ended")
+                requests.post('https://script.google.com/macros/s/AKfycbyrykMlZdJiSK6pHI9HkQRIjKyxHMiD5j7oNwUIIMrYNq7k30fr/exec',str(feeds))
                 print('data: '+str(feeds))
                 
                 os.remove(path+'\{}.json'.format(username))
@@ -67,7 +66,7 @@ def send(request):
         with open(path+'/{}.json'.format(username)) as feedsjson:
             feeds = json.load(feedsjson)
             
-        feeds["Messages"].append({"Name":name, "Message":message, "Type":'client', "DateTime": str(datetime.now())})
+        feeds["Messages"].append({"Name":name, "Message":message, "Type":'client', "DateTime": datetime.now().strftime("%H:%M:%S ")+"   |   "+date.today().strftime("%B %d, %Y")})
         feeds["Messages"].append({"Name":"Chatbot", "Message":get_response(ints, intents), "Type":'myside', "DateTime": str(datetime.now())})
         
         with open(path+'/{}.json'.format(username), mode='w') as f:

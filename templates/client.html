@@ -7,55 +7,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Message To Aexki: Client Side</title>
     <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static './styleformessage.css'%}">
+    <link rel="stylesheet" href="{% static 'bootstrap_css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static './styleforindex.css'%}">
+    <link rel="stylesheet" href="{% static './styleformessage.css'%}">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="{% static 'bootstrap_js/bootstrap.js' %}"></script>
+
 </head>
 
 <body>
     <nav class="navbar">
         <input type="checkbox" id="check">
         <label for="check" class="checkbtn"><i class="fas fa-bars"></i></label>
+        <label for="check" class="checkbtnclose"><i class="fas fa-times"></i></label>
         <label class="logo">AexBot</label>
         <ul>
-            <li><a href="" class="active"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="contact"><i class="far fa-address-book"></i> Contact</a></li>
-            <li style="border-left: 3px solid white; height: 20px;"></li>
-            <li><a href="" onclick="alert('Creator and Developer : Aman Jena')"><i class="fas fa-project-diagram"></i> About Developer</a></li>
+            <li><a href="../" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="../contact"><i class="far fa-address-book"></i> Contact</a></li>
+            <li style="border-left: 3px solid white; height: 20px;" id="line1"></li>
+            <li><a href="#!" onclick="$('#check').prop('checked', false);alert('Creator and Developer : Aman Jena')"><i class="fas fa-project-diagram"></i> About Developer</a></li>
         </ul>
     </nav>
-    <div class="messaging">
-        <div id="inbox_msg">
-            <div class="mesgs">
-                {%for m in Messages%} {%if m.Type == "myside"%}
-                <div class="incoming_msg">
-                    <div class="incoming_msg_img"> <img src="{% static './ax.png' %}"> </div>
-                    <div class="received_msg">
-                        <div class="received_withd_msg">
-                            <p>{{m.Message}}</p>
-                            <span class="time_date"> {{m.DateTime}}  |    June 9</span></div>
+    <div id="inbox_msg">
+        <div class="mesgs">
+            {%if Messages%} {%for m in Messages%} {%if m.Type == "myside"%}
+            <div class="incoming_msg">
+                <div class="incoming_msg_img"> <img src="{% static './ax.png' %}"> </div>
+                <div class="received_msg">
+                    <div class="received_withd_msg">
+                        <p>{{m.Message}}</p>
                     </div>
                 </div>
-                {%else%}
-                <div class="outgoing_msg">
-                    <div class="outgoing_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                    <div class="sent_msg">
-                        <p>{{m.Message}}
-                        </p>
-                        <span class="time_date"> {{m.DateTime}}    |    June 9</span>
-                    </div>
+            </div>
+            {%else%}
+            <div class="outgoing_msg">
+                <div class="outgoing_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                <div class="sent_msg">
+                    <p>{{m.Message}}
+                    </p>
+                    <span class="time_date"> {{m.DateTime}}    </span>
                 </div>
-                {%endif%}{%endfor%}
+            </div>
+            {%endif%}{%endfor%} {%else%}
+            <p id="nomsgyet">Send a Hi to begin conversation..</p>
+            {%endif%}
+        </div>
+    </div>
+    <div class="msginput">
+        <form action="{% url 'send' %}" method="POST" id="sendoptions">{%csrf_token%}
+            <input type="text" placeholder="Type Message..." name="message" id="minput" onfocus="placeholder=''" onblur="placeholder = 'Type Message...'" autocomplete="off" required>
+            <button><i class="fas fa-paper-plane fa-2x"></i></button>
+        </form>
+    </div>
+
+    <!-- Session expired modal button -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="sessionexpiremodalbutton">
+        Launch demo modal
+      </button>
+    <!-- Session expired modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Session Expired</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                </div>
+                <div class="modal-body">
+                    Your session has expired.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a href="/" class="btn btn-primary">Go to start</a>
+                </div>
             </div>
         </div>
-
-        <div class="msginput">
-            <form action="{% url 'send' %}" method="POST" id="sendoptions">{%csrf_token%}
-                <input type="text" placeholder="Type Message" name="message" id="minput" onfocus="placeholder=''" autocomplete="off">
-                <button style="border: none;"><i class="fas fa-paper-plane fa-3x"></i></button>
-            </form>
-        </div>
+    </div>
+    <div class="footer">
+        <p>&#169; Aexki Creation. All Rights Reserved.</p>
     </div>
     <script src="{% static 'scriptformessage.js'%}"></script>
 
