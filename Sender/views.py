@@ -60,7 +60,7 @@ def send(request):
         #using the chatbot to store data in json file
         ints = predict_class(message)
         path=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'chatbot')
-        intents = json.loads(open(path+'\intents.json').read())
+        intents = json.loads(open(path+'/intents.json').read())
         
         path=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'usersofchatbot')
         with open(path+'/{}.json'.format(username)) as feedsjson:
