@@ -33,7 +33,7 @@
             <li><a href="" class="active"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="contact"><i class="far fa-address-book"></i> Contact</a></li>
             <li style="border-left: 3px solid white; height: 20px;" id="line1"></li>
-            <li><a href="#!" onclick="$('#check').prop('checked', false);alert('Creator and Developer : Aman Jena')"><i class="fas fa-project-diagram"></i> About Developer</a></li>
+            <li><a href="#!" onclick="$('#check').prop('checked', false);alert('Created and Developed by : Aman Jena\nThank you for visiting this site..')"><i class="fas fa-project-diagram"></i> About Developer</a></li>
         </ul>
     </nav>
 
@@ -51,7 +51,7 @@
                 <div class="getusername">
                     <h4>Tell me your name to get started:</h4><br>
                     <form action="{% url 'start' %}" method="post">{%csrf_token%}
-                        <input type="text" id="username" placeholder="Enter Your Name" onfocus="placeholder=''" onblur="placeholder='Enter Your Name'" name="username" autocomplete="off">
+                        <input type="text" id="username" placeholder="Enter Your Name" onfocus="placeholder=''" onblur="placeholder='Enter Your Name'" name="username" autocomplete="off" required>
                         <input type="submit" value="Submit" id="submitbutton">
                     </form>
                 </div>

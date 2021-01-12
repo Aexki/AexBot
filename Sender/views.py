@@ -10,7 +10,7 @@ def process_request(request):
     # print("Last Activity :"+str(dote))
     last_activity = datetime.strptime(dote, '%Y-%m-%d %H:%M:%S.%f')
     now = datetime.now()
-    if (now - last_activity).seconds > 60:
+    if (now - last_activity).seconds > 300:
         # print("Session Expired!")
         
         path=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'usersofchatbot')
@@ -24,7 +24,7 @@ def process_request(request):
                 
             if request.session['status:on']:
                 print("Session Ended")
-                requests.post('https://script.google.com/macros/s/AKfycbyrykMlZdJiSK6pHI9HkQRIjKyxHMiD5j7oNwUIIMrYNq7k30fr/exec',str(feeds))
+                # requests.post('https://script.google.com/macros/s/AKfycbyrykMlZdJiSK6pHI9HkQRIjKyxHMiD5j7oNwUIIMrYNq7k30fr/exec',str(feeds))
                 print('data: '+str(feeds))
                 
                 os.remove(path+'\{}.json'.format(username))
@@ -55,7 +55,7 @@ def send(request):
     if request.method=="POST":
         request.session['last_activity']=str(datetime.now())
         name=request.session['username']
-        message=request.POST['message']
+        message=request.POST['message'].lower()
         
         #using the chatbot to store data in json file
         ints = predict_class(message)

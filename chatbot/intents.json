@@ -12,6 +12,12 @@
             "context_set": ""
         },
         {
+            "tag": "meaning",
+            "patterns": ["what does aexki mean?", "aexki meaning?", "meaning of aexki?", "aexki means?"],
+            "responses": ["Thats a secret... Can't Share.."],
+            "context_set": ""
+        },
+        {
             "tag": "age",
             "patterns": ["how old", "how old is aexki", "what is your age", "how old are you", "age?"],
             "responses": [""],
@@ -61,7 +67,7 @@
         },
         {
             "tag": "relationship",
-            "patterns": ["Are you dating someone??", "Does he have a girlfriend", "gf?", "girlfriend?", "girlfrinend name", "dating anyone?", "dating?", "Is he single?", "single?"],
+            "patterns": ["Are you dating someone??", "Does he have a girlfriend", "gf?", "girlfriend?", "girlfriend name", "dating anyone?", "dating?", "Is he single?", "single?"],
             "responses": ["Currently he doesn't have a girlfriend!"],
             "context_set": ""
         },
@@ -85,26 +91,38 @@
         },
         {
             "tag": "anime",
-            "patterns": ["Does he watch anime", "anime", "ever watched anime"],
+            "patterns": ["does he watch anime", "anime", "ever watched anime"],
             "responses": ["Yes he loves anime.."],
             "context_set": ""
         },
         {
             "tag": "movie",
-            "patterns": ["Does he watch movies?", "favourite Movie?", "movie"],
+            "patterns": ["does he watch movies?", "Movie?", "movie"],
             "responses": ["Yes he loves animated movies."],
             "context_set": ""
         },
         {
             "tag": "song",
-            "patterns": ["Does he listen to music", "music?"],
+            "patterns": ["does he listen to music", "music?", "song?"],
             "responses": ["Yes he loves listening to music when he works."],
             "context_set": ""
         },
         {
             "tag": "book",
-            "patterns": ["Does he read books?", "book?"],
+            "patterns": ["does he read books?", "book?"],
             "responses": ["Yes he loves reading books.. He likes talking about it, if you want you can ask him about it.."],
+            "context_set": ""
+        },
+        {
+            "tag": "family",
+            "patterns": ["family?", "family members?"],
+            "responses": ["He lives with his parents and an elder sister.."],
+            "context_set": ""
+        },
+        {
+            "tag": "favourite",
+            "patterns": ["favourite food", "favourite game", "favourite place", "favourite book", "favourite player"],
+            "responses": ["He hasn't programmed me to answer it.. Ask him if you want.."],
             "context_set": ""
         }
     ]

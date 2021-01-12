@@ -12,11 +12,17 @@ def start(request):
         request.session['status:on']=True
         path=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'usersofchatbot')
         try:
-            requests.post('https://script.google.com/macros/s/AKfycbxsxBXbs1xEA0TLouoSAG4QZ4oXnycikuG8NNUl0DwKx5OBLezR/exec',username+' has accessed Aexbot')
+            with open(path+'/{}.json'.format(username)) as feedsjson:
+                feeds = json.load(feedsjson)
+            feedsjson.close
+            # requests.post('https://script.google.com/macros/s/AKfycbyrykMlZdJiSK6pHI9HkQRIjKyxHMiD5j7oNwUIIMrYNq7k30fr/exec',str(feeds))
+            
             os.remove(path+'\{}.json'.format(username))
         except OSError as e:
             print("Failed with:", e.strerror)
         
+        # requests.post('https://script.google.com/macros/s/AKfycbxsxBXbs1xEA0TLouoSAG4QZ4oXnycikuG8NNUl0DwKx5OBLezR/exec',username+' has accessed the Aexbot.')
+            
         return redirect(send)
     
     if 'username' in request.session.keys():
@@ -28,7 +34,7 @@ def start(request):
                 feeds = json.load(feedsjson)
             feedsjson.close
             
-            requests.post('https://script.google.com/macros/s/AKfycbyrykMlZdJiSK6pHI9HkQRIjKyxHMiD5j7oNwUIIMrYNq7k30fr/exec',str(feeds))
+            # requests.post('https://script.google.com/macros/s/AKfycbyrykMlZdJiSK6pHI9HkQRIjKyxHMiD5j7oNwUIIMrYNq7k30fr/exec',str(feeds))
             os.remove(path+'\{}.json'.format(username))
         except OSError as e:
             print("Failed with:", e.strerror)

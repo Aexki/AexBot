@@ -14,12 +14,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="{% static 'bootstrap_js/bootstrap.js' %}"></script>
-    <style>
-        input::placeholder {
-            /* Firefox, Chrome, Opera */
-            text-align: center;
-        }
-    </style>
 </head>
 
 <body>
@@ -32,18 +26,18 @@
             <li><a href="../"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="" class="active"><i class="far fa-address-book"></i> Contact</a></li>
             <li style="border-left: 3px solid white; height: 20px;" id="line1"></li>
-            <li><a href="#!" onclick="$('#check').prop('checked', false);alert('Creator and Developer : Aman Jena')"><i class="fas fa-project-diagram"></i> About Developer</a></li>
+            <li><a href="#!" onclick="$('#check').prop('checked', false);alert('Created and Developed by : Aman Jena\nThank you for visiting this site..')"><i class="fas fa-project-diagram"></i> About Developer</a></li>
         </ul>
     </nav>
 
     <div id="contact">
         <label>Contact Me</label>
-        <form id="contactform" onsubmit="return false">
-            <input type="text" name="name" id="name" placeholder="Your Name..." autocomplete="off" spellcheck="false" required><br><br>
-            <input type="email" name="email" id="email" placeholder="Your Email Address..." autocomplete="off" spellcheck="false" required><br><br>
-            <input type="number" id="number" placeholder="Your Mobile Number(Optional)..." autocomplete="off" pattern="[0-9]{10}"><br><br>
-            <textarea name="message" id="message" placeholder="Type Your Message Here..." autocomplete="off" required></textarea><br><br>
-            <input type="submit" value="Submit" id="contactbtn" onclick="sendEmail()">
+        <form id="contactform" action="{% url 'contact' %}" method="POST">{%csrf_token%}
+            <input type="text" name="name" placeholder="Your Name..." spellcheck="false" required><br><br>
+            <input type="email" name="email" placeholder="Your Email Address..." spellcheck="false" required><br><br>
+            <input type="number" name="number" placeholder="Your Mobile Number(Optional)..." pattern="[0-9]{10}"><br><br>
+            <textarea name="message" id="message" placeholder="Type Your Message Here..." required></textarea><br><br>
+            <input type="submit" value="Submit" id="contactbtn">
         </form>
     </div>
 

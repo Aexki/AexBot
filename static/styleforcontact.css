@@ -1,4 +1,4 @@
-    #contact {
+#contact {
     border: 2px solid white;
     position: absolute;
     top: 150px;
@@ -27,6 +27,14 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px black inset;
+    -webkit-text-fill-color: white;
 }
 
 #contact input::placeholder,
@@ -67,3 +75,10 @@ input::-webkit-inner-spin-button {
     #message {
         width: 280px;
     }
+    #contact label {
+        font-size: 42px;
+    }
+    #contact form {
+        margin-top: -20px;
+    }
+}
