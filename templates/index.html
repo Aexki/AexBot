@@ -59,7 +59,7 @@
                 <div class="getusername">
                     <h4>Tell me your name to get started:</h4><br>
                     <form action="{% url 'start' %}" method="post">{%csrf_token%}
-                        <input type="text" id="username" placeholder="Enter Your Name" onfocus="placeholder=''" onblur="placeholder='Enter Your Name'" name="username" autocomplete="off" required>
+                        <input type="text" id="username" placeholder="Enter Your Name" onfocus="placeholder=''" onblur="placeholder='Enter Your Name'" name="username" autocomplete="off" spellcheck="false" required>
                         <input type="submit" value="Submit" id="submitbutton">
                     </form>
                 </div>

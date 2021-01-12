@@ -55,10 +55,10 @@ def send(request):
     if request.method=="POST":
         request.session['last_activity']=str(datetime.now())
         name=request.session['username']
-        message=request.POST['message'].lower()
+        message=request.POST['message']
         
         #using the chatbot to store data in json file
-        ints = predict_class(message)
+        ints = predict_class(message.lower())
         path=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'chatbot')
         intents = json.loads(open(path+'/intents.json').read())
         
@@ -66,7 +66,7 @@ def send(request):
         with open(path+'/{}.json'.format(username)) as feedsjson:
             feeds = json.load(feedsjson)
             
-        feeds["Messages"].append({"Name":name, "Message":message, "Type":'client', "DateTime": datetime.now().strftime("%H:%M:%S ")+"   |   "+date.today().strftime("%B %d, %Y")})
+        feeds["Messages"].append({"Name":name, "Message":message, "Type":'client', "DateTime": datetime.now().strftime("%H:%M:%S ")+"         |         "+date.today().strftime("%B %d, %Y")})
         feeds["Messages"].append({"Name":"Chatbot", "Message":get_response(ints, intents), "Type":'myside', "DateTime": str(datetime.now())})
         
         with open(path+'/{}.json'.format(username), mode='w') as f:
