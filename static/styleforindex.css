@@ -280,7 +280,7 @@ body {
     width: 100%;
     border-top: 1px solid white;
     background: black;
-    transition: .5s ease-out;
+    transition: .5s ease-in-out;
 }
 
 #footer p {
