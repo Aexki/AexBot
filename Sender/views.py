@@ -45,8 +45,8 @@ def send(request):
     
     #initializing a json file for new user
     if os.path.isfile(path+'/{}.json'.format(username)) == 0: 
-        fileopener=open(path+'/{}.json'.format(username),'w')
-        fileopener.close
+        fileopener1=open(path+'/{}.json'.format(username),'w')
+        fileopener1.close
         
         with open(path+'/{}.json'.format(username), mode='w') as f:
             f.write(json.dumps({"username":username,"Messages":[]}, indent=2))
@@ -73,8 +73,8 @@ def send(request):
             f.write(json.dumps(feeds, indent=2))
         
     #reading data for template    
-    with open(path+'/{}.json'.format(username)) as feedsjson:
-        feeds = json.load(feedsjson)
+    with open(path+'/{}.json'.format(username)) as feedjson:
+        feeds = json.load(feedjson)
     
     
     if res!=0:
