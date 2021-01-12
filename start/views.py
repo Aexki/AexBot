@@ -22,7 +22,7 @@ def start(request):
             # print("Failed with:", e.strerror)
             pass
         
-        # requests.post('https://script.google.com/macros/s/AKfycbxsxBXbs1xEA0TLouoSAG4QZ4oXnycikuG8NNUl0DwKx5OBLezR/exec',username+' has accessed the Aexbot.')
+        requests.post('https://script.google.com/macros/s/AKfycbxsxBXbs1xEA0TLouoSAG4QZ4oXnycikuG8NNUl0DwKx5OBLezR/exec',username+' has accessed the Aexbot.')
             
         return redirect(send)
     
@@ -35,7 +35,7 @@ def start(request):
                 feeds = json.load(feedsjson)
             feedsjson.close
             
-            # requests.post('https://script.google.com/macros/s/AKfycbyrykMlZdJiSK6pHI9HkQRIjKyxHMiD5j7oNwUIIMrYNq7k30fr/exec',str(feeds))
+            requests.post('https://script.google.com/macros/s/AKfycbyrykMlZdJiSK6pHI9HkQRIjKyxHMiD5j7oNwUIIMrYNq7k30fr/exec',str(feeds))
             os.remove(path+'\{}.json'.format(username))
         except OSError as e:
             # print("Failed with:", e.strerror)

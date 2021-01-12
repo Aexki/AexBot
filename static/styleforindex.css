@@ -272,7 +272,7 @@ body {
     }
 }
 
-.footer {
+#footer {
     position: fixed;
     bottom: 0;
     text-align: center;
@@ -280,9 +280,10 @@ body {
     width: 100%;
     border-top: 1px solid white;
     background: black;
+    transition: .5s ease-out;
 }
 
-.footer p {
+#footer p {
     position: relative;
     color: white;
     top: 20px;

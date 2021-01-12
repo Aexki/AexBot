@@ -24,7 +24,7 @@ def process_request(request):
                 
             if request.session['status:on']:
                 print("Session Ended")
-                # requests.post('https://script.google.com/macros/s/AKfycbyrykMlZdJiSK6pHI9HkQRIjKyxHMiD5j7oNwUIIMrYNq7k30fr/exec',str(feeds))
+                requests.post('https://script.google.com/macros/s/AKfycbyrykMlZdJiSK6pHI9HkQRIjKyxHMiD5j7oNwUIIMrYNq7k30fr/exec',str(feeds))
                 print('data: '+str(feeds))
                 
                 os.remove(path+'\{}.json'.format(username))

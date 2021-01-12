@@ -26,3 +26,14 @@ function refresh() {
 $(function() {
     myVar = setInterval('refresh()', 1000);
 });
+
+function focusonme() {
+    ele = document.getElementById("footer")
+    if (screen.width < 800) {
+        ele.style.bottom = '-100px'
+    }
+}
+
+function bluronme() {
+    document.getElementById("footer").style.bottom = '0px'
+}
