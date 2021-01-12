@@ -1,0 +1,41 @@
+{
+  "username": "ulalalalalalelo",
+  "Messages": [
+    {
+      "Name": "ulalalalalalelo",
+      "Message": "hello",
+      "Type": "client",
+      "DateTime": "22:39:03          |         January 12, 2021"
+    },
+    {
+      "Name": "Chatbot",
+      "Message": "Hi there, how can I help?",
+      "Type": "myside",
+      "DateTime": "2021-01-12 22:39:03.683404"
+    },
+    {
+      "Name": "ulalalalalalelo",
+      "Message": "who is this?",
+      "Type": "client",
+      "DateTime": "22:39:08          |         January 12, 2021"
+    },
+    {
+      "Name": "Chatbot",
+      "Message": "I'm Aexbot, I am Aexki's private bot!",
+      "Type": "myside",
+      "DateTime": "2021-01-12 22:39:08.991162"
+    },
+    {
+      "Name": "ulalalalalalelo",
+      "Message": "what does he do?",
+      "Type": "client",
+      "DateTime": "22:39:16          |         January 12, 2021"
+    },
+    {
+      "Name": "Chatbot",
+      "Message": "Currently he is a student at silicon institute of technology.",
+      "Type": "myside",
+      "DateTime": "2021-01-12 22:39:16.643602"
+    }
+  ]
+}

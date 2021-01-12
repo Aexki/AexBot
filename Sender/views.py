@@ -45,9 +45,6 @@ def send(request):
     
     #initializing a json file for new user
     if os.path.isfile(path+'/{}.json'.format(username)) == 0: 
-        fileopener1=open(path+'/{}.json'.format(username),'w')
-        fileopener1.close
-        
         with open(path+'/{}.json'.format(username), mode='w') as f:
             f.write(json.dumps({"username":username,"Messages":[]}, indent=2))
         f.close
