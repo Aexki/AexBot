@@ -159,6 +159,7 @@ img {
 
 @media(max-width:865px) {
     #inbox_msg {
+        margin-top: 90px;
         width: 90%;
     }
     .received_msg p,

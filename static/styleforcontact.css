@@ -69,11 +69,14 @@ input:-webkit-autofill:active {
 }
 
 @media (max-width: 858px) {
+    #contact {
+        top: 90px;
+    }
     #contact input {
-        width: 280px;
+        width: 240px;
     }
     #message {
-        width: 280px;
+        width: 240px;
     }
     #contact label {
         font-size: 42px;
