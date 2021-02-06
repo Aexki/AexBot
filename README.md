@@ -1,2 +1,2 @@
 # AexBot
-A personalised private bot for aexki
+A personalised private chatbot for aexki
